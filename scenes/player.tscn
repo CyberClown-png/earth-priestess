@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://crn3u32k5k4r7"]
+[gd_scene load_steps=37 format=3 uid="uid://crn3u32k5k4r7"]
 
 [ext_resource type="Texture2D" uid="uid://0wg1siq50osf" path="res://Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_18bra"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lv301"]
@@ -228,8 +228,11 @@ animations = [{
 "speed": 14.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fxg"]
+size = Vector2(16, 47)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 6
 script = ExtResource("1_lv301")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -239,3 +242,10 @@ shape = SubResource("RectangleShape2D_j0lfh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fuc0p")
 animation = &"crouch"
+
+[node name="PlayerHurtBox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_s1fxg")

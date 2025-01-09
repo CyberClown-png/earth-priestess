@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://egtc8cf0n08r"]
+
+[ext_resource type="Script" path="res://scripts/earthpriestess.gd" id="1_gictt"]
+[ext_resource type="Texture2D" uid="uid://b56mkdb2h2htl" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_n1jrl"]
+[ext_resource type="Texture2D" uid="uid://ba4qx3hrpph3w" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_3lljk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcnaq"]
+atlas = ExtResource("2_n1jrl")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ovi"]
+atlas = ExtResource("2_n1jrl")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eno5"]
+atlas = ExtResource("2_n1jrl")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6qyb"]
+atlas = ExtResource("2_n1jrl")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7kpk"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsha1"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enur1"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubg0m"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da8kt"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnbxo"]
+atlas = ExtResource("3_3lljk")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjumq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcnaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8ovi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eno5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6qyb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7kpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsha1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enur1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubg0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da8kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnbxo")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dvab"]
+size = Vector2(26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5xpl"]
+size = Vector2(67, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byono"]
+size = Vector2(157, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6hp1"]
+size = Vector2(93, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1u05"]
+size = Vector2(158, 88)
+
+[node name="Earthpriestess" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_gictt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vjumq")
+animation = &"idle"
+frame_progress = 0.870997
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_6dvab")
+
+[node name="areas to read" type="Node2D" parent="."]
+
+[node name="ground meele" type="Area2D" parent="areas to read"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas to read/ground meele"]
+position = Vector2(-49.5, 3)
+shape = SubResource("RectangleShape2D_k5xpl")
+
+[node name="ground mid-far" type="Area2D" parent="areas to read"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas to read/ground mid-far"]
+position = Vector2(-163, 3)
+shape = SubResource("RectangleShape2D_byono")
+
+[node name="air close" type="Area2D" parent="areas to read"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas to read/air close"]
+position = Vector2(-36.5, -55)
+shape = SubResource("RectangleShape2D_w6hp1")
+
+[node name="air mid far" type="Area2D" parent="areas to read"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas to read/air mid far"]
+position = Vector2(-163, -55)
+shape = SubResource("RectangleShape2D_c1u05")
+
+[connection signal="area_entered" from="areas to read/ground meele" to="." method="_on_ground_meele_area_entered"]
+[connection signal="area_entered" from="areas to read/ground mid-far" to="." method="_on_ground_midfar_area_entered"]
+[connection signal="area_entered" from="areas to read/air close" to="." method="_on_air_close_area_entered"]
+[connection signal="area_entered" from="areas to read/air mid far" to="." method="_on_air_mid_far_area_entered"]
