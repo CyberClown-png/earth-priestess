@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d11si6luw8myf"]
+[gd_scene load_steps=7 format=3 uid="uid://d11si6luw8myf"]
 
 [ext_resource type="PackedScene" uid="uid://crn3u32k5k4r7" path="res://scenes/Player.tscn" id="1_hb83b"]
 [ext_resource type="Texture2D" uid="uid://bym1mlv232k7p" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_e3554"]
 [ext_resource type="PackedScene" uid="uid://egtc8cf0n08r" path="res://scenes/earthpriestess.tscn" id="3_g46dh"]
+[ext_resource type="PackedScene" uid="uid://ryuutvm8deim" path="res://scenes/Boulder.tscn" id="4_530wc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rhai5"]
 texture = ExtResource("2_e3554")
@@ -509,3 +510,6 @@ zoom = Vector2(2, 2)
 
 [node name="Earthpriestess" parent="." instance=ExtResource("3_g46dh")]
 position = Vector2(601, 271)
+TimeForAttack = 0.5
+max_attack_coldown = 1
+boulder_projectile = ExtResource("4_530wc")
