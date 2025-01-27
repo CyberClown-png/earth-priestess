@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://egtc8cf0n08r"]
+[gd_scene load_steps=20 format=3 uid="uid://egtc8cf0n08r"]
 
 [ext_resource type="Script" path="res://scripts/earthpriestess.gd" id="1_gictt"]
 [ext_resource type="Texture2D" uid="uid://b56mkdb2h2htl" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_n1jrl"]
@@ -102,9 +102,6 @@ size = Vector2(93, 88)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1u05"]
 size = Vector2(158, 88)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow64i"]
-size = Vector2(20, 26)
-
 [node name="Earthpriestess" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 8
@@ -149,12 +146,6 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas to read/air mid far"]
 position = Vector2(-163.5, -55)
 shape = SubResource("RectangleShape2D_c1u05")
-
-[node name="AttackColisions" type="Area2D" parent="."]
-
-[node name="wall_colision" type="CollisionShape2D" parent="AttackColisions"]
-position = Vector2(-18, 3)
-shape = SubResource("RectangleShape2D_ow64i")
 
 [connection signal="area_entered" from="areas to read/ground meele" to="." method="_on_ground_meele_area_entered"]
 [connection signal="area_entered" from="areas to read/ground mid-far" to="." method="_on_ground_midfar_area_entered"]

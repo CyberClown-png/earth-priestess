@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d11si6luw8myf"]
+[gd_scene load_steps=6 format=3 uid="uid://d11si6luw8myf"]
 
 [ext_resource type="PackedScene" uid="uid://crn3u32k5k4r7" path="res://scenes/Player.tscn" id="1_hb83b"]
 [ext_resource type="Texture2D" uid="uid://bym1mlv232k7p" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_e3554"]
 [ext_resource type="PackedScene" uid="uid://egtc8cf0n08r" path="res://scenes/earthpriestess.tscn" id="3_g46dh"]
-[ext_resource type="PackedScene" uid="uid://ryuutvm8deim" path="res://scenes/Boulder.tscn" id="4_530wc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rhai5"]
 texture = ExtResource("2_e3554")
@@ -490,7 +489,7 @@ texture = ExtResource("2_e3554")
 
 [sub_resource type="TileSet" id="TileSet_phjpi"]
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_mask = 13
 sources/0 = SubResource("TileSetAtlasSource_rhai5")
 
 [node name="Node2D" type="Node2D"]
@@ -498,7 +497,7 @@ sources/0 = SubResource("TileSetAtlasSource_rhai5")
 [node name="Player" parent="." instance=ExtResource("1_hb83b")]
 position = Vector2(294, 274)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="." groups=["ColideableEnvironment"]]
 tile_set = SubResource("TileSet_phjpi")
 collision_visibility_mode = 1
 format = 2
@@ -510,6 +509,3 @@ zoom = Vector2(2, 2)
 
 [node name="Earthpriestess" parent="." instance=ExtResource("3_g46dh")]
 position = Vector2(601, 271)
-TimeForAttack = 0.5
-max_attack_coldown = 1
-boulder_projectile = ExtResource("4_530wc")

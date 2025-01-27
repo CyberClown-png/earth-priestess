@@ -10,6 +10,7 @@ var direction = Vector2.ZERO
 
 func _ready() -> void:
 	animated_sprite_2d.play("idle")
+	
 
 func _physics_process(delta: float) -> void:
 	handle_input()
